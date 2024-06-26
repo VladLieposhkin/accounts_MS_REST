@@ -1,0 +1,53 @@
+name: accounts
+services:
+
+  # Facilities
+
+  accounts-db:
+    image: postgres:16
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: accounts
+      POSTGRES_PASSWORD: accounts
+      POSTGRES_DB: accounts
+
+  # Services
+  accounts-service:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: accounts-service/target/accounts-service-1.0.0-exec.jar
+#      tags:
+#        - localhost:5000/selmag/catalogue-service:24.1.1
+    ports:
+      - 8081:8081
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+  accounts-mailsender:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: accounts-mailsender/target/accounts-mailsender-1.0.0-exec.jar
+    #      tags:
+    #        - localhost:5000/selmag/catalogue-service:24.1.1
+    ports:
+      - 8083:8083
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+  accounts-examiner:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: accounts-examiner/target/accounts-examiner-1.0.0-exec.jar
+    #      tags:
+    #        - localhost:5000/selmag/catalogue-service:24.1.1
+    ports:
+      - 8082:8082
+    environment:
+      SPRING_PROFILES_ACTIVE: docker

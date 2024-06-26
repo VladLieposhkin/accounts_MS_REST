@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:tc:postgresql:15:///accounts?TC_DAEMON=true
+    url: jdbc:tc:postgresql:16:///accounts?TC_DAEMON=true
     username: accounts
     password: accounts
 

@@ -12,13 +12,15 @@ services:
     threshold: 1
 
   external:
-    url:  https://api.coinlore.net/api/ticker
+    url: https://api.coinlore.net/api/ticker
 
   internal:
-    url: host.docker.internal:8081/api/v1
+    url: http://host.docker.internal:8081/api/v1
 #    url: http://localhost:8081/api/v1
 
   mail-sender:
-    url: host.docker.internal:8081/api/v1
+    url: http://host.docker.internal:8083/api/v1
 #    url: http://localhost:8083/api/v1
+
+
 
