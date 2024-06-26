@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name:  accounts-service
+
+  datasource:
+    url: jdbc:postgresql://host.docker.internal:5432/accounts
+    username: accounts
+    password: accounts
+    driverClassName: org.postgresql.Driver
+
+  flyway:
+    schemas:
+      - public
+      - accounts
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+#    show-sql: true
+
+  rabbitmq:
+    host: host.docker.internal
+    port: 5672
+    username: guest
+    password: guest

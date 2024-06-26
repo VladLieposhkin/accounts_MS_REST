@@ -1,0 +1,36 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name:  accounts-service
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/accounts
+    username: accounts
+    password: accounts
+    driverClassName: org.postgresql.Driver
+
+#  datasource:
+#    url: ${datasource.url:jdbc:postgresql://localhost:5432/accounts}
+#    username: ${datasource.username:accounts}
+#    password: ${datasource.password:accounts}
+#    driverClassName: org.postgresql.Driver
+
+  flyway:
+    schemas:
+      - public
+      - accounts
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+#    show-sql: true
+

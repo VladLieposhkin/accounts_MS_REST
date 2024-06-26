@@ -1,0 +1,29 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: accounts-examiner
+
+  rabbitmq:
+    host: host.docker.internal
+    port: 5672
+    username: guest
+    password: guest
+
+services:
+  examiner:
+    fixed-delay: 10
+    initial-delay: 5
+    threshold: 1
+
+  external:
+    url:  https://api.coinlore.net/api/ticker
+
+  internal:
+#    url: http://localhost:8081/api/v1
+    url: host.docker.internal:8081/api/v1
+
+  mail-sender:
+    url: http://localhost:8083/api/v1
+

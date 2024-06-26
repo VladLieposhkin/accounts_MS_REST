@@ -1,0 +1,11 @@
+#spring:
+#  datasource:
+#    url: jdbc:tc:postgresql:15:///accounts?TC_DAEMON=true
+#    username: accounts
+#    password: accounts
+
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://host.docker.internal:5432/accounts
+#    username: accounts
+#    password: accounts
