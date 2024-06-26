@@ -5,12 +5,6 @@ spring:
   application:
     name: accounts-examiner
 
-  rabbitmq:
-    host: host.docker.internal
-    port: 5672
-    username: guest
-    password: guest
-
 services:
   examiner:
     fixed-delay: 10
@@ -21,9 +15,10 @@ services:
     url:  https://api.coinlore.net/api/ticker
 
   internal:
-#    url: http://localhost:8081/api/v1
     url: host.docker.internal:8081/api/v1
+#    url: http://localhost:8081/api/v1
 
   mail-sender:
-    url: http://localhost:8083/api/v1
+    url: host.docker.internal:8081/api/v1
+#    url: http://localhost:8083/api/v1
 

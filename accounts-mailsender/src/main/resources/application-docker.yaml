@@ -5,12 +5,6 @@ spring:
   application:
     name:  accounts-mailsender
 
-  rabbitmq:
-    host: host.docker.internal
-    port: 5672
-    username: guest
-    password: guest
-
   mail:
     host: smtp.example.com
     port: 25
